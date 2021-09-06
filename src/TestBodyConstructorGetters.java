@@ -64,13 +64,5 @@ public class TestBodyConstructorGetters {
         checkEquals(yyVel, p.getYVel(), "yVelocity");
         checkEquals(mass, p.getMass(), "mass");
         checkStringEquals(imgFileName, p.getName(), "path to image");
-
-        CelestialBody pCopy = new CelestialBody(p);
-        checkEquals(p.getX(), pCopy.getX(), "x");
-        checkEquals(p.getY(), pCopy.getY(), "y");
-        checkEquals(p.getXVel(), pCopy.getXVel(), "xVelocity");
-        checkEquals(p.getYVel(), pCopy.getYVel(), "yVelocity");
-        checkEquals(p.getMass(), pCopy.getMass(), "mass");
-        checkStringEquals(p.getName(), pCopy.getName(), "path to image");
     }
 }
