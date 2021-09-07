@@ -96,6 +96,7 @@ public class NBody {
 
 			// TODO: loop over all bodies and call update
 			//       with dt and corresponding xforces and yforces arrays
+
 			for(int k=0; k < bodies.length; k++){
 				// code here
 			}

@@ -8,6 +8,7 @@
  *
  * If you add code here, add yourself as @author below
  *
+ *
  */
 public class CelestialBody {
 
@@ -30,12 +31,22 @@ public class CelestialBody {
 	public CelestialBody(double xp, double yp, double xv,
 			             double yv, double mass, String filename){
 		// TODO: complete constructor
+
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	public double getX() {
 		// TODO: complete method
 		return 0.0;
 	}
+
+	/**
+	 *
+	 * @return
+	 */
 	public double getY() {
 		// TODO: complete method
 		return 0.0;
@@ -57,14 +68,23 @@ public class CelestialBody {
 		// TODO: complete method
 		return 0.0;
 	}
-	
+
+	/**
+	 *
+	 * @return
+	 */
 	public double getMass() {
 		// TODO: complete method
-		return 0.0;
+		return 5.0;
 	}
+
+	/**
+	 *
+	 * @return
+	 */
 	public String getName() {
 		// TODO: complete method
-		return "cow planet";
+		return "cow-planet";
 	}
 
 	/**
