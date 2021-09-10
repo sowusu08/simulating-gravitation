@@ -117,7 +117,14 @@ public class CelestialBody {
 
 	public double calcForceExertedBy(CelestialBody b) {
 		// TODO: complete method
-		return 0.0;
+		// where the gravitational constant is 6.67408 × 10-11
+		double G = 6.67408 * Math.pow(10, -11);
+
+		// force exerted equals = (G * M * m) / r^2
+		double F = (G * this.myMass * b.getMass()) / Math.pow(calcDistance(b), 2);
+
+		//return 0.0;
+		return F;
 	}
 
 	public double calcForceExertedByX(CelestialBody b) {
