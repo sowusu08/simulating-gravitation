@@ -106,7 +106,13 @@ public class CelestialBody {
 	 */
 	public double calcDistance(CelestialBody b) {
 		// TODO: complete method
-		return 0.0;
+		double x_dist = Math.abs(this.getX() - b.getX());
+		double y_dist = Math.abs(this.getY() - b.getY());
+
+		double dist = Math.sqrt(Math.pow(x_dist, 2) + Math.pow(y_dist,2));
+
+		//return 0.0;
+		return dist;
 	}
 
 	public double calcForceExertedBy(CelestialBody b) {
