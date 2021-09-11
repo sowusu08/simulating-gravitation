@@ -194,6 +194,28 @@ public class CelestialBody {
 	public void update(double deltaT, 
 			           double xforce, double yforce) {
 		// TODO: complete method
+		// find x_f, y_f after applied force and change in time
+		// x_f = x_0 + v_0x + 0.5t^2 * a_x
+		// y_f = y_0 + v_0y + 0.5t^2 * a_y
+		double a_x = (xforce / this.getMass());
+		double a_y = (yforce / this.getMass());
+
+
+		// find nv_x and nv_y after applied force and change in time
+		// nv_x = vx_0 + a_x * t
+		// nv_y = vy_0 + a_y * t
+		double nv_x = this.getXVel() + a_x * deltaT;
+		double nv_y = this.getYVel() + a_y * deltaT;
+
+		// use nv_x and nv_y (velocity after applied force) to fin final position
+		double x_f = this.getX() + (nv_x * deltaT);
+		double y_f = this.getY() + (nv_y * deltaT);
+
+		// update instance variables
+		myXPos = x_f;
+		myYPos = y_f;
+		myXVel = nv_x;
+		myYVel = nv_y;
 	}
 
 	/**
