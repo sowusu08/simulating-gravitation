@@ -129,11 +129,30 @@ public class CelestialBody {
 
 	public double calcForceExertedByX(CelestialBody b) {
 		// TODO: complete method
-		return 0.0;
+		double F = this.calcForceExertedBy(b);
+		double x_delt = b.getX() - this.getX();
+		double y_delt = b.getY() - this.getY();
+		double r = Math.sqrt(Math.pow(x_delt, 2) + Math.pow(y_delt,2));
+
+		// force_x = F∆X / distance
+		double F_x = F * x_delt / r;
+
+		//return 0.0;
+		return F_x;
 	}
+
 	public double calcForceExertedByY(CelestialBody b) {
 		// TODO: complete method
-		return 0.0;
+		double F = this.calcForceExertedBy(b);
+		double x_delt = b.getX() - this.getX();		// final - initial
+		double y_delt = b.getY() - this.getY();
+		double r = Math.sqrt(Math.pow(x_delt, 2) + Math.pow(y_delt,2));
+
+		// force_x = F∆X / distance
+		double F_y = F * y_delt / r;
+
+		//return 0.0;
+		return F_y;
 	}
 
 	public double calcNetForceExertedByX(CelestialBody[] bodies) {
