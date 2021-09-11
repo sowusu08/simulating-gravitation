@@ -23,6 +23,8 @@ public class NBody {
 		// find the radius
 
 		double rad = 0.0;
+		s.nextInt();
+		rad += s.nextDouble();		// radius is a double stored on second line of each input file
 		
 		s.close();
 		
