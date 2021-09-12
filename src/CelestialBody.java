@@ -121,7 +121,7 @@ public class CelestialBody {
 		double G = 6.67 * Math.pow(10, -11);
 
 		// force exerted equals = (G * M * m) / r^2
-		double F = (G * this.myMass * b.getMass()) / Math.pow(calcDistance(b), 2);
+		double F = (G * this.getMass() * b.getMass()) / Math.pow(calcDistance(b), 2);
 
 		//return 0.0;
 		return F;
@@ -161,14 +161,16 @@ public class CelestialBody {
 
 		// calculate all F_x
 		for(CelestialBody b : bodies){
-			double F = this.calcForceExertedBy(b);
-			double x_delt = b.getX() - this.getX();
-			double y_delt = b.getY() - this.getY();
-			double r = Math.sqrt(Math.pow(x_delt, 2) + Math.pow(y_delt,2));
+			if(! b.equals(this)) {
+				double F = this.calcForceExertedBy(b);
+				double x_delt = b.getX() - this.getX();
+				double y_delt = b.getY() - this.getY();
+				double r = Math.sqrt(Math.pow(x_delt, 2) + Math.pow(y_delt, 2));
 
-			double F_x = F * x_delt / r;
+				double F_x = F * x_delt / r;
 
-			sum += F_x;
+				sum += F_x;
+			}
 		}
 
 		return sum;
@@ -178,14 +180,16 @@ public class CelestialBody {
 		double sum = 0.0;
 
 		for(CelestialBody b : bodies){
-			double F = this.calcForceExertedBy(b);
-			double x_delt = b.getX() - this.getX();
-			double y_delt = b.getY() - this.getY();
-			double r = Math.sqrt(Math.pow(x_delt, 2) + Math.pow(y_delt,2));
+			if(! b.equals(this)) {
+				double F = this.calcForceExertedBy(b);
+				double x_delt = b.getX() - this.getX();
+				double y_delt = b.getY() - this.getY();
+				double r = Math.sqrt(Math.pow(x_delt, 2) + Math.pow(y_delt, 2));
 
-			double F_y = F * y_delt / r;
+				double F_y = F * y_delt / r;
 
-			sum += F_y;
+				sum += F_y;
+			}
 		}
 
 		return sum;
