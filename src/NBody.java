@@ -86,8 +86,8 @@ public class NBody {
 			totalTime = Double.parseDouble(args[0]);
 			dt = Double.parseDouble(args[1]);
 			fname = args[2];
-		}	
-		
+		}
+
 		CelestialBody[] bodies = readBodies(fname);
 		double radius = readRadius(fname);
 
@@ -98,16 +98,19 @@ public class NBody {
 		// run simulation until over
 
 		for(double t = 0.0; t < totalTime; t += dt) {
-			
+
 			// TODO: create double arrays xforces and yforces
 			//       to hold forces on each body
-
+			double[] xforces = new double[bodies.length];
+			double[] yforces = new double[bodies.length];
 
 			// TODO: in loop, calculate netForcesX and netForcesY and store in
 			//       arrays xforces and yforces for each object in bodies
 
 			for(int k=0; k < bodies.length; k++) {
 				// code here
+				xforces[k] = bodies[k].calcNetForceExertedByX(bodies);
+				yforces[k] = bodies[k].calcNetForceExertedByY(bodies);
   			}
 
 			// TODO: loop over all bodies and call update
@@ -115,30 +118,32 @@ public class NBody {
 
 			for(int k=0; k < bodies.length; k++){
 				// code here
+				bodies[k].update(dt, xforces[k], yforces[k]);
 			}
 
 			StdDraw.clear();
 			StdDraw.picture(0,0,"images/starfield.jpg");
-			
+
 			// TODO: loop over all bodies and call draw on each one
 
 			for(CelestialBody b : bodies){
 				// code here
+				b.draw();
 			}
 			StdDraw.show();
 			StdDraw.pause(10);
 
 		}
-		
+
 		// prints final values after simulation
-		
+
 		System.out.printf("%d\n", bodies.length);
 		System.out.printf("%.2e\n", radius);
 		for (int i = 0; i < bodies.length; i++) {
 		    System.out.printf("%11.4e %11.4e %11.4e %11.4e %11.4e %12s\n",
-		   		              bodies[i].getX(), bodies[i].getY(), 
-		                      bodies[i].getXVel(), bodies[i].getYVel(), 
-		                      bodies[i].getMass(), bodies[i].getName());	
+		   		              bodies[i].getX(), bodies[i].getY(),
+		                      bodies[i].getXVel(), bodies[i].getYVel(),
+		                      bodies[i].getMass(), bodies[i].getName());
 		}
 	}
 }
